@@ -939,7 +939,7 @@ class fragment_matching_found(MSONable):
                 product_bonds_broken = []
 
                 reactant_hashes = dict()
-                reactant_fragment_objects = dict()
+                # reactant_fragment_objects = dict()
                 reactant_fragment_mappings = dict()
                 for reactant_index, frag_complex_index in enumerate(
                     reactant_fragment_indices
@@ -961,7 +961,7 @@ class fragment_matching_found(MSONable):
                         else:
                             reactant_hashes[tag] = 1
 
-                    reactant_fragment_objects[reactant_index] = fragment_complex.fragment_objects
+                    # reactant_fragment_objects[reactant_index] = fragment_complex.fragment_objects
                     reactant_fragment_mappings[reactant_index] = {}
                     for ii, mappings in enumerate(fragment_complex.fragment_mappings):
                         if fragment_complex.fragment_hashes[ii] in reactant_fragment_mappings[reactant_index]:
@@ -971,7 +971,7 @@ class fragment_matching_found(MSONable):
                             reactant_fragment_mappings[reactant_index][fragment_complex.fragment_hashes[ii]] = copy.deepcopy(mappings)
 
                 product_hashes = dict()
-                product_fragment_objects = dict()
+                # product_fragment_objects = dict()
                 product_fragment_mappings = dict()
                 for product_index, frag_complex_index in enumerate(
                     product_fragment_indices
@@ -994,7 +994,7 @@ class fragment_matching_found(MSONable):
                         else:
                             product_hashes[tag] = 1
 
-                    product_fragment_objects[product_index] = fragment_complex.fragment_objects
+                    # product_fragment_objects[product_index] = fragment_complex.fragment_objects
                     product_fragment_mappings[product_index] = {}
                     for ii, mappings in enumerate(fragment_complex.fragment_mappings):
                         if fragment_complex.fragment_hashes[ii] in product_fragment_mappings[product_index]:
@@ -1047,9 +1047,9 @@ class fragment_matching_found(MSONable):
                         reaction["hashes"] = reactant_hashes
                         reaction["reactant_fragment_count"] = reactant_fragment_count
                         reaction["product_fragment_count"] = product_fragment_count
-                        reaction["reactant_fragment_objects"] = reactant_fragment_objects
+                        # reaction["reactant_fragment_objects"] = reactant_fragment_objects
                         reaction["reactant_fragment_mappings"] = reactant_fragment_mappings
-                        reaction["product_fragment_objects"] = product_fragment_objects
+                        # reaction["product_fragment_objects"] = product_fragment_objects
                         reaction["product_fragment_mappings"] = product_fragment_mappings
                         return True
                     else:
@@ -1059,9 +1059,9 @@ class fragment_matching_found(MSONable):
                         tmp["hashes"] = reactant_hashes
                         tmp["reactant_fragment_count"] = reactant_fragment_count
                         tmp["product_fragment_count"] = product_fragment_count
-                        tmp["reactant_fragment_objects"] = reactant_fragment_objects
+                        # tmp["reactant_fragment_objects"] = reactant_fragment_objects
                         tmp["reactant_fragment_mappings"] = reactant_fragment_mappings
-                        tmp["product_fragment_objects"] = product_fragment_objects
+                        # tmp["product_fragment_objects"] = product_fragment_objects
                         tmp["product_fragment_mappings"] = product_fragment_mappings
                         viable_fragment_matches.append(tmp)
 
@@ -1094,9 +1094,9 @@ class fragment_matching_found(MSONable):
             reaction["hashes"] = best_matching["hashes"]
             reaction["reactant_fragment_count"] = best_matching["reactant_fragment_count"]
             reaction["product_fragment_count"] = best_matching["product_fragment_count"]
-            reaction["reactant_fragment_objects"] = best_matching["reactant_fragment_objects"]
+            # reaction["reactant_fragment_objects"] = best_matching["reactant_fragment_objects"]
             reaction["reactant_fragment_mappings"] = best_matching["reactant_fragment_mappings"]
-            reaction["product_fragment_objects"] = best_matching["product_fragment_objects"]
+            # reaction["product_fragment_objects"] = best_matching["product_fragment_objects"]
             reaction["product_fragment_mappings"] = best_matching["product_fragment_mappings"]
             return True
 

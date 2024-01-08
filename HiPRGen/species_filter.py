@@ -242,6 +242,7 @@ def species_filter(
                     fragment_dict[fragment.fragment_hash])
                 fragment_complex.fragment_mappings.append(all_mappings)
         assert len(fragment_complex.fragment_objects) == len(fragment_complex.fragment_mappings)
+        fragment_complex.fragment_objects = []
 
 
     log_message(str(len(fragment_dict.keys())) + " unique fragments found")
