@@ -1196,12 +1196,16 @@ class mapping_with_reaction_center_not_found(MSONable):
                 for ind in range(reaction["number_of_reactants"]):
                     if double_hash in reaction["reactant_fragment_mappings"][ind]:
                         if len(reaction["reactant_fragment_mappings"][ind][double_hash]) == 2:
-                            assert double_hash_on_same_specie == False
-                            double_hash_on_same_specie = True
+                            if double_hash_on_same_specie:
+                                return True
+                            else:
+                                double_hash_on_same_specie = True
                     if double_hash in reaction["product_fragment_mappings"][ind]:
                         if len(reaction["product_fragment_mappings"][ind][double_hash]) == 2:
-                            assert double_hash_on_same_specie == False
-                            double_hash_on_same_specie = True
+                            if double_hash_on_same_specie:
+                                return True
+                            else:
+                                double_hash_on_same_specie = True
 
                 if not double_hash_on_same_specie:
                     for reactant_index in range(reaction["number_of_reactants"]):
